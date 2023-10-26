@@ -1,12 +1,12 @@
 import React from "react";
 import { Button, Card } from "react-bootstrap";
 import { FaArrowLeft } from "react-icons/fa";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
+import EditorInsits from "../AllNews/EditorInsites/EditorInsits";
 
 const News = () => {
   const data = useLoaderData();
-  console.log(data);
-  const { image_url, title, details } = data;
+  const { image_url, title, details, category_id } = data;
   return (
     <div>
       <h4>News Sunday</h4>
@@ -17,11 +17,15 @@ const News = () => {
           </div>
           <Card.Title className="my-3 fs-2">{title}</Card.Title>
           <Card.Text>{details}</Card.Text>
-          <Button variant="danger" className="my-4">
-            <FaArrowLeft></FaArrowLeft> {"  "} All news in this category
-          </Button>
+          <Link to={`/category/${category_id}`}>
+            <Button variant="danger" className="my-4">
+              <FaArrowLeft></FaArrowLeft> {"  "} All news in this category
+            </Button>
+          </Link>
         </Card.Body>
       </Card>
+
+      <EditorInsits></EditorInsits>
     </div>
   );
 };

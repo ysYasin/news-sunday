@@ -9,6 +9,7 @@ import { authContext } from "../../../AuthProvider/AuthProvider";
 
 function NavigationBar() {
   const { user, Logout } = useContext(authContext);
+  console.log(user);
 
   //
   const handleSignOut = () => {
@@ -48,8 +49,8 @@ function NavigationBar() {
           <Nav className="gap-2">
             <img src={userAvater} width={"50px"} alt="" />{" "}
             {user ? (
-              <div className="d-flex gap-2">
-                <h4>{user.displayName}</h4>
+              <div className="d-flex align-items-center gap-2">
+                <h6>{user.displayName}</h6>
                 <Button onClick={handleSignOut} variant="secondary">
                   Logout
                 </Button>

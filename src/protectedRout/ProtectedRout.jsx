@@ -18,7 +18,7 @@ const ProtectedRout = ({ children }) => {
   } else if (user) {
     return children;
   } else {
-    return <Navigate to={"/login"} state={{ from: location }}></Navigate>;
+    return <Navigate to={"/main/login"} state={{ from: location }}></Navigate>;
   }
 };
 

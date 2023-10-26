@@ -4,7 +4,7 @@ import { Button, Form } from "react-bootstrap";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { authContext } from "../../AuthProvider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
-import { sendEmailVerification } from "firebase/auth";
+import { sendEmailVerification, updateProfile } from "firebase/auth";
 import auth from "../../Firebase/firebase.config";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -39,7 +39,11 @@ const Ragister = () => {
 
     signinByEmailandPass(email, password)
       .then((result) => {
-        result.displayName = name;
+        updateProfile(auth.currentUser, {
+          displayName: name,
+        })
+          .then(() => {})
+          .catch((err) => setError(err.message));
         sendEmailVerification(auth.currentUser)
           .then(() => {
             toast("please verify your email!", {
@@ -55,7 +59,7 @@ const Ragister = () => {
           })
           .catch((err) => setError(err.message));
         setInterval(() => {
-          navigate("/login");
+          navigate("/main/login");
         }, 4000);
       })
 
@@ -66,8 +70,6 @@ const Ragister = () => {
 
   return (
     <div>
-      <NavigationBar></NavigationBar>
-
       <div className="w-25 mx-auto my-5 pt-5 pb-3 rounded-2 shadow-lg px-3 bg-body-tertiary">
         <h2 className="text-center mb-2">Please Register!</h2>
         <form onSubmit={handleResistration}>
@@ -126,7 +128,7 @@ const Ragister = () => {
           </Button>
         </form>
         <p>
-          Allready have an account ? <Link to="/login">Please Login</Link>
+          Allready have an account ? <Link to="/main/login">Please Login</Link>
         </p>
       </div>
       <ToastContainer />

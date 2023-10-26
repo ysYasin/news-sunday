@@ -19,14 +19,17 @@ const AuthProvider = ({ children }) => {
 
   //SignUp By Email and password
   const signinByEmailandPass = (email, password) => {
+    SetLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
   //signup by google
   const signupWithGoogle = () => {
+    SetLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
 
   const loginWithPass = (email, password) => {
+    SetLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
   useEffect(() => {

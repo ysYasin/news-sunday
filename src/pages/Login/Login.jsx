@@ -47,9 +47,7 @@ const Login = () => {
   };
   return (
     <div>
-      <div className="mb-5">
-        <NavigationBar></NavigationBar>
-      </div>
+      <div className="mb-5"></div>
       <div className="w-25 mx-auto my-5 pt-5 pb-3 rounded-2 shadow-lg px-3 bg-body-tertiary">
         <h2 className="text-center mb-2">Please Login!</h2>
 
@@ -86,7 +84,8 @@ const Login = () => {
           </Button>
         </form>
         <p>
-          Allready have an account ? <Link to="/register">Please Register</Link>
+          Allready have an account ?{" "}
+          <Link to="/main/register">Please Register</Link>
         </p>
         <ToastContainer />
       </div>
