@@ -13,14 +13,14 @@ const LeftNav = () => {
   }, []);
 
   return (
-    <div className="my-4">
+    <div className="my-4 me-2">
       <h4 className="fw-semibold">All categories</h4>
       {caterories &&
         caterories.map((category) => (
           <ActiveLink
             key={category.id}
             className="text-decoration-none fw-semibold d-block w-100 px-3 py-3 text-body-tertiary"
-            to={`/${category.name}`}
+            to={`/category/${category.id}`}
           >
             {category.name}
           </ActiveLink>

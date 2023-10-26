@@ -4,6 +4,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import LeftNav from "../../shared/LeftSideNave/LeftNave";
 import RightNav from "../../shared/RightSideNav/RightNav";
 import Footer from "../../shared/Footer/Footer";
+import { Outlet } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -14,8 +15,8 @@ const Home = () => {
           <Col lg={3} className="">
             <LeftNav></LeftNav>
           </Col>
-          <Col lg={6} className="">
-            main body
+          <Col lg={6} className="my-4">
+            <Outlet />
           </Col>
           <Col lg={3} className="">
             <RightNav />

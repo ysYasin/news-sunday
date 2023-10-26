@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import "./Active.css";
 
 const active = {
   color: "#000",
@@ -12,7 +13,7 @@ const ActiveLink = ({ to, children }) => {
         to={to}
         className={`text-decoration-none fw-semibold d-block w-100 px-3 py-3 text-body-tertiary ${({
           isActive,
-        }) => (isActive ? active : "")}`}
+        }) => (isActive ? "active" : "")}`}
       >
         {children}
       </NavLink>

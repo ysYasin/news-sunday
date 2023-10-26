@@ -1,11 +1,8 @@
 import React from "react";
-import NavigationBar from "../../shared/Header/Naveber/Navbar";
 
 const AboutPage = () => {
   return (
     <div>
-      <NavigationBar></NavigationBar>
-
       <div className="w-50 mx-auto">
         <h3 className="my-5 text-capitalize text-center">About Us</h3>
         <p>

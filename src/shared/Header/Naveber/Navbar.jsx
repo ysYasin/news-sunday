@@ -31,7 +31,7 @@ function NavigationBar() {
             <Nav.Link href="#about">
               <Link
                 className="text-black link-underline-light fw-medium fs-5"
-                to="/about"
+                to="/main/about"
               >
                 About
               </Link>
@@ -39,7 +39,7 @@ function NavigationBar() {
             <Nav.Link href="#career">
               <Link
                 className="text-black link-underline-light fw-medium fs-5"
-                to="/career"
+                to="/main/career"
               >
                 Career
               </Link>
@@ -55,7 +55,7 @@ function NavigationBar() {
                 </Button>
               </div>
             ) : (
-              <Link to={"/login"}>
+              <Link to={"/main/login"}>
                 <Button variant="secondary">Login</Button>
               </Link>
             )}
