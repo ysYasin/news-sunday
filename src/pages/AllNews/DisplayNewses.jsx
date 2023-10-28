@@ -9,9 +9,9 @@ import {
   FaStar,
   FaStarHalfAlt,
 } from "react-icons/fa";
-import Rating from "react-rating";
+import { Rating } from "@smastrom/react-rating";
 import { Link } from "react-router-dom";
-import EditorInsits from "./EditorInsites/EditorInsits";
+import "@smastrom/react-rating/style.css";
 
 const DisplayNewses = ({ news }) => {
   const {
@@ -66,11 +66,9 @@ const DisplayNewses = ({ news }) => {
         <Card.Footer className="d-flex align-items-center">
           <div className="flex-grow-1">
             <Rating
-              readonly
-              placeholderRating={rating.number}
-              emptySymbol={<FaStarHalfAlt></FaStarHalfAlt>}
-              placeholderSymbol={<FaStar></FaStar>}
-              fullSymbol={<FaStar></FaStar>}
+              style={{ maxWidth: 100 }}
+              value={Math.round(rating?.number) || 0}
+              readOnly
             />
             {"   "}
             <span>{rating.number}</span>
