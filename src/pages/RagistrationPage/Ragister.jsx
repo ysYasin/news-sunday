@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import NavigationBar from "../../shared/Header/Naveber/Navbar";
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { authContext } from "../../AuthProvider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
@@ -68,6 +68,21 @@ const Ragister = () => {
       });
   };
 
+  // tooltip function
+  const Link = ({ id, children, title, to }) => (
+    <OverlayTrigger overlay={<Tooltip id={id}>{title}</Tooltip>}>
+      <a href={to}>{children}</a>
+    </OverlayTrigger>
+  );
+
+  // Accept terms and condition
+  const [accept, setAccept] = useState(false);
+
+  const handleAcceptTerms = (event) => {
+    const check = event.target.checked;
+    setAccept(check);
+  };
+
   return (
     <div>
       <div className="w-25 mx-auto my-5 pt-5 pb-3 rounded-2 shadow-lg px-3 bg-body-tertiary">
@@ -119,13 +134,42 @@ const Ragister = () => {
           <small className="text-danger d-block">
             {error !== " " ? error + "*" : ""}
           </small>
+          <Form.Check
+            onClick={handleAcceptTerms}
+            type="checkbox"
+            label={
+              <>
+                Accept{" "}
+                <Link
+                  className="link-underline-primary text-primary"
+                  to="/terms"
+                >
+                  Terms and condition
+                </Link>
+              </>
+            }
+          />
           <Form.Text id="passwordHelpBlock" className="text-center" muted>
             Your password must be 8-20 characters long, contain letters and
             numbers, and must contain special characters.
           </Form.Text>
-          <Button variant="primary" type="submit" className="w-100 mt-3 mb-4">
-            Register
-          </Button>
+          <Link
+            title={`${
+              !accept
+                ? `Please accept terms and condition`
+                : "Complite Ragistration"
+            }`}
+            id={`${!accept && "t-1"}`}
+          >
+            <Button
+              variant="primary"
+              disabled={!accept}
+              type="submit"
+              className="w-100 mt-3 mb-4"
+            >
+              Register
+            </Button>
+          </Link>
         </form>
         <p>
           Allready have an account ? <Link to="/main/login">Please Login</Link>

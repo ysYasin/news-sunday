@@ -9,7 +9,6 @@ import { authContext } from "../../../AuthProvider/AuthProvider";
 
 function NavigationBar() {
   const { user, Logout } = useContext(authContext);
-  console.log(user);
 
   //
   const handleSignOut = () => {
@@ -21,30 +20,25 @@ function NavigationBar() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mx-auto">
-            <Nav.Link href="#Home">
-              <Link
-                className="text-black link-underline-light fw-medium fs-5"
-                to="/"
-              >
-                Home
-              </Link>
-            </Nav.Link>
-            <Nav.Link href="#about">
-              <Link
-                className="text-black link-underline-light fw-medium fs-5"
-                to="/main/about"
-              >
-                About
-              </Link>
-            </Nav.Link>
-            <Nav.Link href="#career">
-              <Link
-                className="text-black link-underline-light fw-medium fs-5"
-                to="/main/career"
-              >
-                Career
-              </Link>
-            </Nav.Link>
+            <Link
+              className="text-black me-3 link-underline-light fw-medium fs-5"
+              to="/"
+            >
+              Home
+            </Link>
+
+            <Link
+              className="text-black me-3 link-underline-light fw-medium fs-5"
+              to="/main/about"
+            >
+              About
+            </Link>
+            <Link
+              className="text-black me-3 link-underline-light fw-medium fs-5"
+              to="/main/career"
+            >
+              Career
+            </Link>
           </Nav>
           <Nav className="gap-2">
             <img src={userAvater} width={"50px"} alt="" />{" "}

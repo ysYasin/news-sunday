@@ -49,7 +49,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <AllNews></AllNews>,
-        loader: () => fetch("http://localhost:5000/news"),
+        loader: () =>
+          fetch(
+            "https://news-sunday-server-lqh4zhyv9-ysyasins-projects.vercel.app/news"
+          ),
       },
       {
         path: "category/:id",
@@ -65,7 +68,9 @@ const router = createBrowserRouter([
         path: ":id",
         element: <News />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/news/${params.id}`),
+          fetch(
+            `https://news-sunday-server-lqh4zhyv9-ysyasins-projects.vercel.app/news/${params.id}`
+          ),
       },
     ],
   },

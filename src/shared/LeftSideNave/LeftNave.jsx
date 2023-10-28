@@ -10,7 +10,9 @@ const LeftNav = () => {
   const [caterories, setCategory] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/category")
+    fetch(
+      "https://news-sunday-server-lqh4zhyv9-ysyasins-projects.vercel.app/category"
+    )
       .then((res) => res.json())
       .then((data) => setCategory(data))
       .catch((error) => console.error(error));
